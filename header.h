@@ -177,6 +177,8 @@ int avgOperationExecution(OperationExecution* head,int operationID);
 int TempoMinimoDaOperacao(OperationExecution* head);
 //Calcular o caminho mais longo para completar um job
 int TempoMaximoDaOperacao(OperationExecution* head);
+// Maior Operation
+int maiorOperation(OperationExecution* head);
 
 
 #pragma endregion
