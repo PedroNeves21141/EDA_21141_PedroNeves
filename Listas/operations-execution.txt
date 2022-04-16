@@ -1,0 +1,9 @@
+OperationID: 2	MaquinaID: 2	Tempo: 3
+OperationID: 2	MaquinaID: 2	Tempo: 4
+OperationID: 3	MaquinaID: 1	Tempo: 1
+OperationID: 3	MaquinaID: 2	Tempo: 2
+OperationID: 7	MaquinaID: 1	Tempo: 8
+OperationID: 7	MaquinaID: 2	Tempo: 9
+OperationID: 8	MaquinaID: 1	Tempo: 1
+OperationID: 8	MaquinaID: 2	Tempo: 2
+OperationID: 8	MaquinaID: 3	Tempo: 5
