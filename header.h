@@ -36,9 +36,26 @@ typedef enum bool
 
 typedef struct Processo
 {
-    int id;
-    struct Processo* next;
+    int id; //Contem o ID
+    struct OperationExecution* OperationExecutions; //Contem nºOperações
+    struct Processo* next; //Proximo job/processo
 }Processo;
+
+/**
+ * @brief Estrutura para armazenar a execução de uma operação
+ * 
+ * Uma execução de uma operação contêm o id da operação(operationID),o id da maquina(maquinaID),a unidade de tempo(usageTime) e contêm um apontador
+ *  para a próxima execução de uma operação
+*/
+
+typedef struct OperationExecution
+{
+    int operationID;
+    int machineID;
+    int usageTime; //unidades de tempo necessaria para a realização da operação
+    struct OperationExecution* next;
+}OperationExecution;
+
 
 /**
  * @brief Estrutura para armazenar um operação
@@ -52,22 +69,6 @@ typedef struct Operation
     struct Operation* next;
 }Operation;
 
-
-/**
- * @brief Estrutura para armazenar a execução de uma operação
- * 
- * Uma execução de uma operação contêm o id da operação(operationID),o id da maquina(maquinaID),a unidade de tempo(usageTime) e contêm um apontador
- *  para a próxima execução de uma operação
- */
-
-typedef struct OperationExecution
-{
-    int operationID;
-    int machineID;
-    int usageTime; //unidades de tempo necessaria para a realização da operação
-    struct OperationExecution* next;
-}OperationExecution;
-
 /**
  * @brief Estrutura de uma maquina
  * 
@@ -80,6 +81,13 @@ typedef struct Maquina
     bool isActive; // se a maquina esta ou nao em utilização
     struct Maquina* next;
 }Maquina;
+
+typedef struct ProcessoPart
+{
+    int id;
+    struct ProcessoPart* next;
+}ProcessoPart;
+
 #pragma endregion
 
 #pragma region Metodos
@@ -102,6 +110,20 @@ bool eliminarProcesso(Processo** head, int id);
 bool procurarProcesso(Processo* head,int id);
 //Apagar processos na memoria
 bool apagarProcessos(Processo* head);
+
+
+//Inserir novo ProcessoPart
+ProcessoPart* novoProcessoPart(int id);
+//Inserir um ProcessoPart no Inicio
+ProcessoPart* inserirProcessoPartNoInicio(ProcessoPart* head, ProcessoPart* ProcessoDeInicio);
+//Eliminar um ProcessoPart
+bool eliminarProcessoPart(ProcessoPart** head, int id);
+//Mostrar ficheiro de ProcessoPart
+bool mostrarProcessosPart(ProcessoPart* head);
+//Escrever no ficheiro processopart.txt
+bool escreverProcessosPart(char fileName[],ProcessoPart* head);
+//Procurar ProcessoPart
+ProcessoPart* procurarProcessoPart(ProcessoPart* head,int id);
 
 
 //Inserir nova Maquina
@@ -157,28 +179,32 @@ OperationExecution* procurarOperationExecution(OperationExecution** head,int ope
 //Apagar execuções das operações na memoria
 bool apagarOperationExecution(OperationExecution* head);
 //Atualizar Operation Execution
-bool atualizarOperationExecution(OperationExecution** head, OperationExecution* operationParaAtualizar,int usageTime);
+bool atualizarOperationExecution(Processo** head1,OperationExecution** head, OperationExecution* operationParaAtualizar,int operationID);
 //Procurar uma operação 
-OperationExecution* procurarOperationExecutionOp(OperationExecution** head,int operationID);
+OperationExecution* procurarOperationExecutionOp(Processo** head1,OperationExecution** head,int id,int operationID);
 //Ordenar por ordem crescente
 OperationExecution* OrdenarExecucaoPorOrdem(OperationExecution* head);
 
 //Lista o numero total de processos
 int getListCount(Processo* head);
 //Carrega os dados das listas
-void loadData(Processo** processos,Maquina** maquinas,Operation** operations,OperationExecution** operationsExecutions);
-//Calcular o maior tempo
-int maxOperationExecution(Operation* operations, OperationExecution* executions, OperationExecution** minexecutions);
-//Calcular o menor tempo
-int minOperationExecution(Operation* operations, OperationExecution* executions, OperationExecution** minexecutions);
+void loadData(Processo** processos,Maquina** maquinas,Operation** operations,OperationExecution** operationsExecution,ProcessoPart** processoparts);
 //Calcular a media do tempo
 int avgOperationExecution(OperationExecution* head,int operationID);
 //Calcular o caminho mais curto para completar um job
-int TempoMinimoDaOperacao(OperationExecution* head);
+int TempoMinimoDaOperacao(Processo* head,OperationExecution* head1,int id,int operationID);
 //Calcular o caminho mais longo para completar um job
-int TempoMaximoDaOperacao(OperationExecution* head);
+int TempoMaximoDaOperacao(OperationExecution* head,int operationID);
 // Maior Operation
 int maiorOperation(OperationExecution* head);
+//Eliminar Processo Operation
+bool eliminarProcessoOperationExecution(Processo** head,int id);
+bool eliminarProcessoOperationExecutionOp(Processo** head,OperationExecution** head1,int id,int operation);
+bool procurarProcessoOperationExecutionOp(Processo** head1,OperationExecution** head,int id,int operationID);
+bool procurarProcessoOperationExecutionOpMaquina(Processo** head1,OperationExecution** head,int id,int operationID,int machineID);
+bool atualizarProcessoOperationExecution(Processo** head1,OperationExecution** head,int id,int operationID,int update);
+bool atualizarProcessoOperationExecutionMaquina(Processo** head1,OperationExecution** head,int id,int operationID,int machineID,int update);
+bool atualizarProcessoOperationExecutionTempo(Processo** head1,OperationExecution** head,int id,int operationID,int machineID,int update);
 
 
 #pragma endregion

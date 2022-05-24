@@ -23,12 +23,13 @@
  * @param operationsExecution lista de operationExecution
  */
 
-void loadData(Processo** processos,Maquina** maquinas,Operation** operations,OperationExecution** operationsExecution)
+void loadData(Processo** processos,Maquina** maquinas,Operation** operations,OperationExecution** operationsExecution,ProcessoPart** processoparts)
 {
     Processo* processo = NULL;
     Maquina* maquina = NULL;
     Operation* operation = NULL;
     OperationExecution* operationExecution = NULL;
+    ProcessoPart* processopart = NULL;
     int op1,op2,op3,op4;
 
     FILE* fp = fopen("job.txt", "r");
@@ -80,18 +81,27 @@ void loadData(Processo** processos,Maquina** maquinas,Operation** operations,Ope
                     op3 = atoi(value);
                    
                 }
+
+                // Column 4
+                if (column == 3) {
+                    printf("%s", value);
+                    op4 = atoi(value);
+                   
+                }
                 
                 //printf("-->%s", value);
                 value = strtok(NULL, ", ");
                 column++;
                 
             }
-            
-                operation = novoOperation(op1);
+
+                processo = novoProcesso(op1);
+                *processos = inserirProcessoNoInicio(*processos,processo);
+                processopart = novoProcessoPart(op1);
+                *processoparts = inserirProcessoPartNoInicio(*processoparts,processopart);
+                operation = novoOperation(op2);
                 *operations = inserirOperationNoInicio(*operations, operation);
-                maquina = novaMaquina(op2, false);
-                *maquinas = inserirMaquinaNoInicio(*maquinas, maquina);
-                operationExecution = novoOperationExecution(op1,op2,op3);
+                operationExecution = novoOperationExecution(op2,op3,op4);
                 *operationsExecution = inserirOperationExecutionNoInicio(*operationsExecution, operationExecution);
                 printf("\n");
         }
@@ -110,7 +120,7 @@ void loadData(Processo** processos,Maquina** maquinas,Operation** operations,Ope
  * @return false 
  */
 
-bool escreverJob(char fileName[],OperationExecution* head)
+bool escreverJob(char fileName[],Processo* head,OperationExecution* head1)
 {
     if(head == NULL) //se a lista estiver vazia
     {
@@ -124,11 +134,16 @@ bool escreverJob(char fileName[],OperationExecution* head)
         return false;
     }
 
-    OperationExecution* current = head;
-    while(current != NULL) //escrever todos os elementos da lista no ficheiro
+    Processo* current = head;
+    OperationExecution* current1 = head1;
+    while(current != NULL || current1 != NULL) //escrever todos os elementos da lista no ficheiro
     {
-        fprintf(file,"%d,%d,%d\n",current->operationID,current->machineID,current->usageTime);
-        current = current->next;
+        if((current->id != 0) && (current1->operationID != 0))
+        {
+            fprintf(file,"%d,%d,%d,%d\n",current->id,current1->operationID,current1->machineID,current1->usageTime);
+            current = current->next;
+            current1 = current1->next;
+        }
     }
 
     if (fwrite == 0) //se nenhum elemento foi escrito no ficheiro

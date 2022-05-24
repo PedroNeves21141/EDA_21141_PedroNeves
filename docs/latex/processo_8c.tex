@@ -1,0 +1,282 @@
+\hypertarget{processo_8c}{}\doxysection{processo.\+c File Reference}
+\label{processo_8c}\index{processo.c@{processo.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_processo}{Processo}} $\ast$ \mbox{\hyperlink{processo_8c_a7d6bc74baa36f48e9efdee34631e5ce3}{novo\+Processo}} (int id)
+\item 
+\mbox{\hyperlink{struct_processo}{Processo}} $\ast$ \mbox{\hyperlink{processo_8c_a408688bb75363bccec3116e49e10f7f0}{inserir\+Processo\+No\+Inicio}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$head, \mbox{\hyperlink{struct_processo}{Processo}} $\ast$Processo\+De\+Inicio)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a1954fea09bed0f18313fab71ca6ae617}{escrever\+Processos}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_processo}{Processo}} $\ast$head)
+\item 
+\mbox{\hyperlink{struct_processo}{Processo}} $\ast$ \mbox{\hyperlink{processo_8c_ad10a66a5d4b8a743dffd3d4f1fcbfe4e}{ler\+Processos}} (char file\+Name\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_afa9c2e70a65807cc23ed48b56bac3271}{mostrar\+Processos}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$head)
+\item 
+\mbox{\hyperlink{struct_processo}{Processo}} $\ast$ \mbox{\hyperlink{processo_8c_ad54e28fcd048d8b0ee29376218891ead}{atualizar\+Processo}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$head, \mbox{\hyperlink{struct_processo}{Processo}} $\ast$Processo\+Para\+Atualizar, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a9d0c013aaed6dd8fbd71a4da61c7abf3}{eliminar\+Processo}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$head, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a11492c7b23f9af5bfbdf08ce364469b4}{procurar\+Processo}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$head, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_ad613f20e3babb8ffcad5afeb04edfe74}{apagar\+Processos}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$head)
+\item 
+\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$ \mbox{\hyperlink{processo_8c_afa4b2f2c86701aba7288644f6c447f4d}{novo\+Processo\+Part}} (int id)
+\item 
+\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$ \mbox{\hyperlink{processo_8c_a9941e410bb80ae610dd5db24001e74cb}{inserir\+Processo\+Part\+No\+Inicio}} (\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$head, \mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$Processo\+De\+Inicio)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_aa077259b82288452154985238524333e}{eliminar\+Processo\+Part}} (\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$$\ast$head, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a53bb82bc7ea93c673b377fdcd0120e7c}{mostrar\+Processos\+Part}} (\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$head)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a6e0af20b0c970278d468d9c81d814713}{escrever\+Processos\+Part}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$head)
+\item 
+\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$ \mbox{\hyperlink{processo_8c_a231ede79066bf1bed7afbfedf2d14f3f}{procurar\+Processo\+Part}} (\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$head, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_aa3a124023d687b9febe73fcee9003193}{eliminar\+Processo\+Operation\+Execution}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$head, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_ab61e820ebde4e4cc7433f5c16450b86d}{eliminar\+Processo\+Operation\+Execution\+Op}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$head, \mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$head1, int id, int operation)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_abeb7aafcf1c0958c269e97a740da8364}{procurar\+Processo\+Operation\+Execution\+Op}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$head1, \mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$head, int id, int operation\+ID)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a1a62d3d1905c081a99f4be73f0161fc3}{procurar\+Processo\+Operation\+Execution\+Op\+Maquina}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$head1, \mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$head, int id, int operation\+ID, int machine\+ID)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a5b408f9abad233f0ff09858467332272}{atualizar\+Processo\+Operation\+Execution}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$head1, \mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$head, int id, int operation\+ID, int update)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a632aff8ad4ad5ee59a2c928e5e848708}{atualizar\+Processo\+Operation\+Execution\+Maquina}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$head1, \mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$head, int id, int operation\+ID, int machine\+ID, int update)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{processo_8c_a9336711176e5a0d2f0ecef693169a42e}{atualizar\+Processo\+Operation\+Execution\+Tempo}} (\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$head1, \mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$head, int id, int operation\+ID, int machine\+ID, int update)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{processo_8c_ad613f20e3babb8ffcad5afeb04edfe74}\label{processo_8c_ad613f20e3babb8ffcad5afeb04edfe74}} 
+\index{processo.c@{processo.c}!apagarProcessos@{apagarProcessos}}
+\index{apagarProcessos@{apagarProcessos}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{apagarProcessos()}{apagarProcessos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} apagar\+Processos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_ad54e28fcd048d8b0ee29376218891ead}\label{processo_8c_ad54e28fcd048d8b0ee29376218891ead}} 
+\index{processo.c@{processo.c}!atualizarProcesso@{atualizarProcesso}}
+\index{atualizarProcesso@{atualizarProcesso}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{atualizarProcesso()}{atualizarProcesso()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_processo}{Processo}} $\ast$ atualizar\+Processo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$}]{Processo\+Para\+Atualizar,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+{\em Processo\+Para\+Atualizar} & \\
+\hline
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Processo$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_a5b408f9abad233f0ff09858467332272}\label{processo_8c_a5b408f9abad233f0ff09858467332272}} 
+\index{processo.c@{processo.c}!atualizarProcessoOperationExecution@{atualizarProcessoOperationExecution}}
+\index{atualizarProcessoOperationExecution@{atualizarProcessoOperationExecution}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{atualizarProcessoOperationExecution()}{atualizarProcessoOperationExecution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} atualizar\+Processo\+Operation\+Execution (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$}]{head1,  }\item[{\mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$}]{head,  }\item[{int}]{id,  }\item[{int}]{operation\+ID,  }\item[{int}]{update }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a632aff8ad4ad5ee59a2c928e5e848708}\label{processo_8c_a632aff8ad4ad5ee59a2c928e5e848708}} 
+\index{processo.c@{processo.c}!atualizarProcessoOperationExecutionMaquina@{atualizarProcessoOperationExecutionMaquina}}
+\index{atualizarProcessoOperationExecutionMaquina@{atualizarProcessoOperationExecutionMaquina}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{atualizarProcessoOperationExecutionMaquina()}{atualizarProcessoOperationExecutionMaquina()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} atualizar\+Processo\+Operation\+Execution\+Maquina (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$}]{head1,  }\item[{\mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$}]{head,  }\item[{int}]{id,  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID,  }\item[{int}]{update }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a9336711176e5a0d2f0ecef693169a42e}\label{processo_8c_a9336711176e5a0d2f0ecef693169a42e}} 
+\index{processo.c@{processo.c}!atualizarProcessoOperationExecutionTempo@{atualizarProcessoOperationExecutionTempo}}
+\index{atualizarProcessoOperationExecutionTempo@{atualizarProcessoOperationExecutionTempo}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{atualizarProcessoOperationExecutionTempo()}{atualizarProcessoOperationExecutionTempo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} atualizar\+Processo\+Operation\+Execution\+Tempo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$}]{head1,  }\item[{\mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$}]{head,  }\item[{int}]{id,  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID,  }\item[{int}]{update }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a9d0c013aaed6dd8fbd71a4da61c7abf3}\label{processo_8c_a9d0c013aaed6dd8fbd71a4da61c7abf3}} 
+\index{processo.c@{processo.c}!eliminarProcesso@{eliminarProcesso}}
+\index{eliminarProcesso@{eliminarProcesso}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{eliminarProcesso()}{eliminarProcesso()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} eliminar\+Processo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_aa3a124023d687b9febe73fcee9003193}\label{processo_8c_aa3a124023d687b9febe73fcee9003193}} 
+\index{processo.c@{processo.c}!eliminarProcessoOperationExecution@{eliminarProcessoOperationExecution}}
+\index{eliminarProcessoOperationExecution@{eliminarProcessoOperationExecution}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{eliminarProcessoOperationExecution()}{eliminarProcessoOperationExecution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} eliminar\+Processo\+Operation\+Execution (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_ab61e820ebde4e4cc7433f5c16450b86d}\label{processo_8c_ab61e820ebde4e4cc7433f5c16450b86d}} 
+\index{processo.c@{processo.c}!eliminarProcessoOperationExecutionOp@{eliminarProcessoOperationExecutionOp}}
+\index{eliminarProcessoOperationExecutionOp@{eliminarProcessoOperationExecutionOp}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{eliminarProcessoOperationExecutionOp()}{eliminarProcessoOperationExecutionOp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} eliminar\+Processo\+Operation\+Execution\+Op (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$}]{head1,  }\item[{int}]{id,  }\item[{int}]{operation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_aa077259b82288452154985238524333e}\label{processo_8c_aa077259b82288452154985238524333e}} 
+\index{processo.c@{processo.c}!eliminarProcessoPart@{eliminarProcessoPart}}
+\index{eliminarProcessoPart@{eliminarProcessoPart}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{eliminarProcessoPart()}{eliminarProcessoPart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} eliminar\+Processo\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$$\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a1954fea09bed0f18313fab71ca6ae617}\label{processo_8c_a1954fea09bed0f18313fab71ca6ae617}} 
+\index{processo.c@{processo.c}!escreverProcessos@{escreverProcessos}}
+\index{escreverProcessos@{escreverProcessos}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{escreverProcessos()}{escreverProcessos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} escrever\+Processos (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+{\em head} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_a6e0af20b0c970278d468d9c81d814713}\label{processo_8c_a6e0af20b0c970278d468d9c81d814713}} 
+\index{processo.c@{processo.c}!escreverProcessosPart@{escreverProcessosPart}}
+\index{escreverProcessosPart@{escreverProcessosPart}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{escreverProcessosPart()}{escreverProcessosPart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} escrever\+Processos\+Part (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a408688bb75363bccec3116e49e10f7f0}\label{processo_8c_a408688bb75363bccec3116e49e10f7f0}} 
+\index{processo.c@{processo.c}!inserirProcessoNoInicio@{inserirProcessoNoInicio}}
+\index{inserirProcessoNoInicio@{inserirProcessoNoInicio}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{inserirProcessoNoInicio()}{inserirProcessoNoInicio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_processo}{Processo}} $\ast$ inserir\+Processo\+No\+Inicio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$}]{Processo\+De\+Inicio }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+{\em Processo\+De\+Inicio} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Processo$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_a9941e410bb80ae610dd5db24001e74cb}\label{processo_8c_a9941e410bb80ae610dd5db24001e74cb}} 
+\index{processo.c@{processo.c}!inserirProcessoPartNoInicio@{inserirProcessoPartNoInicio}}
+\index{inserirProcessoPartNoInicio@{inserirProcessoPartNoInicio}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{inserirProcessoPartNoInicio()}{inserirProcessoPartNoInicio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$ inserir\+Processo\+Part\+No\+Inicio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$}]{Processo\+De\+Inicio }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_ad10a66a5d4b8a743dffd3d4f1fcbfe4e}\label{processo_8c_ad10a66a5d4b8a743dffd3d4f1fcbfe4e}} 
+\index{processo.c@{processo.c}!lerProcessos@{lerProcessos}}
+\index{lerProcessos@{lerProcessos}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{lerProcessos()}{lerProcessos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_processo}{Processo}} $\ast$ ler\+Processos (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Processo$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_afa9c2e70a65807cc23ed48b56bac3271}\label{processo_8c_afa9c2e70a65807cc23ed48b56bac3271}} 
+\index{processo.c@{processo.c}!mostrarProcessos@{mostrarProcessos}}
+\index{mostrarProcessos@{mostrarProcessos}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{mostrarProcessos()}{mostrarProcessos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} mostrar\+Processos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_a53bb82bc7ea93c673b377fdcd0120e7c}\label{processo_8c_a53bb82bc7ea93c673b377fdcd0120e7c}} 
+\index{processo.c@{processo.c}!mostrarProcessosPart@{mostrarProcessosPart}}
+\index{mostrarProcessosPart@{mostrarProcessosPart}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{mostrarProcessosPart()}{mostrarProcessosPart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} mostrar\+Processos\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a7d6bc74baa36f48e9efdee34631e5ce3}\label{processo_8c_a7d6bc74baa36f48e9efdee34631e5ce3}} 
+\index{processo.c@{processo.c}!novoProcesso@{novoProcesso}}
+\index{novoProcesso@{novoProcesso}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{novoProcesso()}{novoProcesso()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_processo}{Processo}} $\ast$ novo\+Processo (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Processo$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_afa4b2f2c86701aba7288644f6c447f4d}\label{processo_8c_afa4b2f2c86701aba7288644f6c447f4d}} 
+\index{processo.c@{processo.c}!novoProcessoPart@{novoProcessoPart}}
+\index{novoProcessoPart@{novoProcessoPart}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{novoProcessoPart()}{novoProcessoPart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$ novo\+Processo\+Part (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a11492c7b23f9af5bfbdf08ce364469b4}\label{processo_8c_a11492c7b23f9af5bfbdf08ce364469b4}} 
+\index{processo.c@{processo.c}!procurarProcesso@{procurarProcesso}}
+\index{procurarProcesso@{procurarProcesso}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{procurarProcesso()}{procurarProcesso()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} procurar\+Processo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{processo_8c_abeb7aafcf1c0958c269e97a740da8364}\label{processo_8c_abeb7aafcf1c0958c269e97a740da8364}} 
+\index{processo.c@{processo.c}!procurarProcessoOperationExecutionOp@{procurarProcessoOperationExecutionOp}}
+\index{procurarProcessoOperationExecutionOp@{procurarProcessoOperationExecutionOp}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{procurarProcessoOperationExecutionOp()}{procurarProcessoOperationExecutionOp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} procurar\+Processo\+Operation\+Execution\+Op (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$}]{head1,  }\item[{\mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$}]{head,  }\item[{int}]{id,  }\item[{int}]{operation\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a1a62d3d1905c081a99f4be73f0161fc3}\label{processo_8c_a1a62d3d1905c081a99f4be73f0161fc3}} 
+\index{processo.c@{processo.c}!procurarProcessoOperationExecutionOpMaquina@{procurarProcessoOperationExecutionOpMaquina}}
+\index{procurarProcessoOperationExecutionOpMaquina@{procurarProcessoOperationExecutionOpMaquina}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{procurarProcessoOperationExecutionOpMaquina()}{procurarProcessoOperationExecutionOpMaquina()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} procurar\+Processo\+Operation\+Execution\+Op\+Maquina (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo}{Processo}} $\ast$$\ast$}]{head1,  }\item[{\mbox{\hyperlink{struct_operation_execution}{Operation\+Execution}} $\ast$$\ast$}]{head,  }\item[{int}]{id,  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{processo_8c_a231ede79066bf1bed7afbfedf2d14f3f}\label{processo_8c_a231ede79066bf1bed7afbfedf2d14f3f}} 
+\index{processo.c@{processo.c}!procurarProcessoPart@{procurarProcessoPart}}
+\index{procurarProcessoPart@{procurarProcessoPart}!processo.c@{processo.c}}
+\doxysubsubsection{\texorpdfstring{procurarProcessoPart()}{procurarProcessoPart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$ procurar\+Processo\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_processo_part}{Processo\+Part}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+

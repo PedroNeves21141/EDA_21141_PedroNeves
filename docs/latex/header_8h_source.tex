@@ -1,0 +1,173 @@
+\hypertarget{header_8h_source}{}\doxysection{header.\+h}
+\mbox{\hyperlink{header_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#pragma region Struct }}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{25 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \textcolor{keyword}{false} = 0,}
+\DoxyCodeLine{28     \textcolor{keyword}{true} = 1}
+\DoxyCodeLine{29 \}\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{37 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_processo}{Processo}}}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_processo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}; \textcolor{comment}{//Contem o ID}}
+\DoxyCodeLine{40     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* \mbox{\hyperlink{struct_processo_af54eb08bbdc350099b6f956ef328885c}{OperationExecutions}}; \textcolor{comment}{//Contem nºOperações}}
+\DoxyCodeLine{41     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_processo}{Processo}}* \mbox{\hyperlink{struct_processo_aac3bd77cd8e8bc30d1c3e090c289c9f6}{next}}; \textcolor{comment}{//Proximo job/processo}}
+\DoxyCodeLine{42 \}\mbox{\hyperlink{header_8h_ae94fc50920d119f37007f76890c7998d}{Processo}};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{51 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
+\DoxyCodeLine{55     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_execution_a5b0c774afcc14a923e540e36cee6f810}{usageTime}}; \textcolor{comment}{//unidades de tempo necessaria para a realização da operação}}
+\DoxyCodeLine{56     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* \mbox{\hyperlink{struct_operation_execution_a549df09fec9d90e8767890b3da2f7d07}{next}};}
+\DoxyCodeLine{57 \}\mbox{\hyperlink{header_8h_a8423f953238d4da9fb9e988ae3ed1d9a}{OperationExecution}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 }
+\DoxyCodeLine{66 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation}{Operation}}}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{69     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{70 \}\mbox{\hyperlink{header_8h_a482954e58a1aa24c2a67b81bb6d92d9c}{Operation}};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{78 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_maquina}{Maquina}}}
+\DoxyCodeLine{79 \{}
+\DoxyCodeLine{80     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_maquina_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{81     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_maquina_a96eff8420fb9ee1b4c5d5f1bcace116d}{isActive}}; \textcolor{comment}{// se a maquina esta ou nao em utilização}}
+\DoxyCodeLine{82     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_maquina}{Maquina}}* \mbox{\hyperlink{struct_maquina_a0202c09e827f160d8b5fb2e77396ab57}{next}};}
+\DoxyCodeLine{83 \}\mbox{\hyperlink{header_8h_a9cf752acb85e5524c5da46e853b7e9cd}{Maquina}};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_processo_part}{ProcessoPart}}}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_processo_part_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{88     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* \mbox{\hyperlink{struct_processo_part_ad2c11c8f04c354b25bc4ffe8dd975b80}{next}};}
+\DoxyCodeLine{89 \}\mbox{\hyperlink{header_8h_ae84c34219140733d600363da0964cb6c}{ProcessoPart}};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#pragma region Metodos}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{comment}{//Inserir novo Processo}}
+\DoxyCodeLine{96 \mbox{\hyperlink{struct_processo}{Processo}}* \mbox{\hyperlink{header_8h_a7d6bc74baa36f48e9efdee34631e5ce3}{novoProcesso}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{97 \textcolor{comment}{//Inserir um processo no Inicio}}
+\DoxyCodeLine{98 \mbox{\hyperlink{struct_processo}{Processo}}* \mbox{\hyperlink{header_8h_a408688bb75363bccec3116e49e10f7f0}{inserirProcessoNoInicio}}(\mbox{\hyperlink{struct_processo}{Processo}}* head, \mbox{\hyperlink{struct_processo}{Processo}}* ProcessoDeInicio);}
+\DoxyCodeLine{99 \textcolor{comment}{//Escrever para o ficheiro processos}}
+\DoxyCodeLine{100 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a1954fea09bed0f18313fab71ca6ae617}{escreverProcessos}}(\textcolor{keywordtype}{char} fileName[], \mbox{\hyperlink{struct_processo}{Processo}}* head);}
+\DoxyCodeLine{101 \textcolor{comment}{//Ler ficheiro de processos}}
+\DoxyCodeLine{102 \mbox{\hyperlink{struct_processo}{Processo}}* \mbox{\hyperlink{header_8h_ad10a66a5d4b8a743dffd3d4f1fcbfe4e}{lerProcessos}}(\textcolor{keywordtype}{char} fileName[]);}
+\DoxyCodeLine{103 \textcolor{comment}{//Mostrar ficheiro de processos}}
+\DoxyCodeLine{104 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_afa9c2e70a65807cc23ed48b56bac3271}{mostrarProcessos}}(\mbox{\hyperlink{struct_processo}{Processo}}* head);}
+\DoxyCodeLine{105 \textcolor{comment}{//Atualizar um processo}}
+\DoxyCodeLine{106 \mbox{\hyperlink{struct_processo}{Processo}}* \mbox{\hyperlink{header_8h_ad54e28fcd048d8b0ee29376218891ead}{atualizarProcesso}}(\mbox{\hyperlink{struct_processo}{Processo}}* head, \mbox{\hyperlink{struct_processo}{Processo}}* ProcessoParaAtualizar, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{107 \textcolor{comment}{//Eliminar um processo}}
+\DoxyCodeLine{108 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a9d0c013aaed6dd8fbd71a4da61c7abf3}{eliminarProcesso}}(\mbox{\hyperlink{struct_processo}{Processo}}** head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{109 \textcolor{comment}{//Procurar um processo}}
+\DoxyCodeLine{110 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a11492c7b23f9af5bfbdf08ce364469b4}{procurarProcesso}}(\mbox{\hyperlink{struct_processo}{Processo}}* head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{111 \textcolor{comment}{//Apagar processos na memoria}}
+\DoxyCodeLine{112 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_ad613f20e3babb8ffcad5afeb04edfe74}{apagarProcessos}}(\mbox{\hyperlink{struct_processo}{Processo}}* head);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{comment}{//Inserir novo ProcessoPart}}
+\DoxyCodeLine{116 \mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* \mbox{\hyperlink{header_8h_afa4b2f2c86701aba7288644f6c447f4d}{novoProcessoPart}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{117 \textcolor{comment}{//Inserir um ProcessoPart no Inicio}}
+\DoxyCodeLine{118 \mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* \mbox{\hyperlink{header_8h_a9941e410bb80ae610dd5db24001e74cb}{inserirProcessoPartNoInicio}}(\mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* head, \mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* ProcessoDeInicio);}
+\DoxyCodeLine{119 \textcolor{comment}{//Eliminar um ProcessoPart}}
+\DoxyCodeLine{120 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_aa077259b82288452154985238524333e}{eliminarProcessoPart}}(\mbox{\hyperlink{struct_processo_part}{ProcessoPart}}** head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{121 \textcolor{comment}{//Mostrar ficheiro de ProcessoPart}}
+\DoxyCodeLine{122 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a53bb82bc7ea93c673b377fdcd0120e7c}{mostrarProcessosPart}}(\mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* head);}
+\DoxyCodeLine{123 \textcolor{comment}{//Escrever no ficheiro processopart.txt}}
+\DoxyCodeLine{124 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a6e0af20b0c970278d468d9c81d814713}{escreverProcessosPart}}(\textcolor{keywordtype}{char} fileName[],\mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* head);}
+\DoxyCodeLine{125 \textcolor{comment}{//Procurar ProcessoPart}}
+\DoxyCodeLine{126 \mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* \mbox{\hyperlink{header_8h_a231ede79066bf1bed7afbfedf2d14f3f}{procurarProcessoPart}}(\mbox{\hyperlink{struct_processo_part}{ProcessoPart}}* head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{comment}{//Inserir nova Maquina}}
+\DoxyCodeLine{130 \mbox{\hyperlink{struct_maquina}{Maquina}}* \mbox{\hyperlink{header_8h_a30a4e5a3ca6534c3c28fa541903bed81}{novaMaquina}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{bool} isActive);}
+\DoxyCodeLine{131 \textcolor{comment}{//Inserir uma maquina no Inicio}}
+\DoxyCodeLine{132 \mbox{\hyperlink{struct_maquina}{Maquina}}* \mbox{\hyperlink{header_8h_a22208bfb7363bbc8d21b771dc4f251f4}{inserirMaquinaNoInicio}}(\mbox{\hyperlink{struct_maquina}{Maquina}}* head,\mbox{\hyperlink{struct_maquina}{Maquina}}* machineDeInicio);}
+\DoxyCodeLine{133 \textcolor{comment}{//Escrever para o ficheiro de Maquinas}}
+\DoxyCodeLine{134 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a808b84cebde0bacf26cfbba664941c25}{escreverMaquinas}}(\textcolor{keywordtype}{char} fileName[],\mbox{\hyperlink{struct_maquina}{Maquina}}* head);}
+\DoxyCodeLine{135 \textcolor{comment}{//Ler o ficheiro de Maquinas}}
+\DoxyCodeLine{136 \mbox{\hyperlink{struct_maquina}{Maquina}}* \mbox{\hyperlink{header_8h_ace57c013cf4e606d46c3616b9bd23d27}{lerMaquinas}}(\textcolor{keywordtype}{char} fileName[]);}
+\DoxyCodeLine{137 \textcolor{comment}{//Mostrar ficheiro de Maquinas}}
+\DoxyCodeLine{138 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a80894c4215d16e8e0a581999138d8c67}{mostrarMaquinas}}(\mbox{\hyperlink{struct_maquina}{Maquina}}* head);}
+\DoxyCodeLine{139 \textcolor{comment}{//Procurar uma maquina}}
+\DoxyCodeLine{140 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a209d3a829d5762b6aa4ff7e5746c7e8e}{procurarMaquina}}(\mbox{\hyperlink{struct_maquina}{Maquina}}* head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{141 \textcolor{comment}{//Apagar maquinas na memoria}}
+\DoxyCodeLine{142 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a6018562fe1d28f9c8c0ba06c6f9cd848}{apagarMaquinas}}(\mbox{\hyperlink{struct_maquina}{Maquina}}* head);}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{//Inserir uma operação}}
+\DoxyCodeLine{146 \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{header_8h_a656a3f593cfefa6d70431d38e0d2f71d}{novoOperation}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{147 \textcolor{comment}{//Inserir uma operação no Inicio}}
+\DoxyCodeLine{148 \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{header_8h_a563bbeed3f10c7f7dfd9224c10f72bb7}{inserirOperationNoInicio}}(\mbox{\hyperlink{struct_operation}{Operation}}* head,\mbox{\hyperlink{struct_operation}{Operation}}* operationDeInicio);}
+\DoxyCodeLine{149 \textcolor{comment}{//Atualizar uma operação}}
+\DoxyCodeLine{150 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a726d66a907aa817a18566fdb22544c5a}{atualizarOperation}}(\mbox{\hyperlink{struct_operation}{Operation}}** head, \mbox{\hyperlink{struct_operation}{Operation}}** operationParaAtualizar, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{151 \textcolor{comment}{//Eliminar uma operação}}
+\DoxyCodeLine{152 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a9ad8d89fdeca4b142246e4ac9fc0ea1b}{eliminarOperation}}(\mbox{\hyperlink{struct_operation}{Operation}}** head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{153 \textcolor{comment}{//Escrever para o ficheiro de Operações}}
+\DoxyCodeLine{154 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_ab7652c8bccc5e1c41897c2e6604f9537}{escreverOperations}}(\textcolor{keywordtype}{char} fileName[],\mbox{\hyperlink{struct_operation}{Operation}}* head);}
+\DoxyCodeLine{155 \textcolor{comment}{//Ler o ficheiro de Operações}}
+\DoxyCodeLine{156 \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{header_8h_a6900d33c6f2755948a07e8c2b8b970d8}{lerOperations}}(\textcolor{keywordtype}{char} fileName[]);}
+\DoxyCodeLine{157 \textcolor{comment}{//Mostrar o ficheiro de Operações}}
+\DoxyCodeLine{158 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a4c3f45ab872cded2a580bf74e9480b63}{mostrarOperations}}(\mbox{\hyperlink{struct_operation}{Operation}}* head);}
+\DoxyCodeLine{159 \textcolor{comment}{//Procurar uma operação}}
+\DoxyCodeLine{160 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a66176c9d32855bd9d34bf3c009a7f229}{procurarOperationporID}}(\mbox{\hyperlink{struct_operation}{Operation}}* head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{161 \textcolor{comment}{//Apagar operações na memoria}}
+\DoxyCodeLine{162 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a8d2f850d6217c113be0a4a8d6811fca1}{apagarOperations}}(\mbox{\hyperlink{struct_operation}{Operation}}* head);}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{comment}{//Inserir nova execução de uma operação}}
+\DoxyCodeLine{166 \mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* \mbox{\hyperlink{header_8h_a4ad1f2f1aaa929b5e71e1d6f89d32267}{novoOperationExecution}}(\textcolor{keywordtype}{int} operationID,\textcolor{keywordtype}{int} machineID,\textcolor{keywordtype}{int} usageTime);}
+\DoxyCodeLine{167 \textcolor{comment}{//Inserir uma execução de uma operação no Inicio}}
+\DoxyCodeLine{168 \mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* \mbox{\hyperlink{header_8h_a2cdf69040457ce6e57a7770a7cfccf6f}{inserirOperationExecutionNoInicio}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* operationExecutionDeInicio);}
+\DoxyCodeLine{169 \textcolor{comment}{//Eliminar uma execução de uma operação}}
+\DoxyCodeLine{170 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_abf870f877e3d7cf3e0a950e2fcdd5833}{eliminarOperationExecution}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head,\textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{171 \textcolor{comment}{//Escrever para o ficheiro das execuções das operações}}
+\DoxyCodeLine{172 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a9a33d4270bddf0b3a19816378391f432}{escreverOperationExecution}}(\textcolor{keywordtype}{char} fileName[],\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head);}
+\DoxyCodeLine{173 \textcolor{comment}{//Ler o ficheiro das execuções das operações}}
+\DoxyCodeLine{174 \mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* \mbox{\hyperlink{header_8h_ab3a683215dd0076653daa537c3244a72}{lerOperationsExecution}}(\textcolor{keywordtype}{char} fileName[]);}
+\DoxyCodeLine{175 \textcolor{comment}{//Mostrar o ficheiro das execuções das operações}}
+\DoxyCodeLine{176 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_ad8d6be5e0eeff1cbf956c72af1dc7919}{mostrarOperationExecution}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head);}
+\DoxyCodeLine{177 \textcolor{comment}{//Procurar uma execução de uma operação}}
+\DoxyCodeLine{178 \mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* \mbox{\hyperlink{header_8h_af6b49aebc431566efc221da456d8699d}{procurarOperationExecution}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head,\textcolor{keywordtype}{int} operationID,\textcolor{keywordtype}{int} machineID);}
+\DoxyCodeLine{179 \textcolor{comment}{//Apagar execuções das operações na memoria}}
+\DoxyCodeLine{180 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a404b512c1592beeb102394b59b1caa97}{apagarOperationExecution}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head);}
+\DoxyCodeLine{181 \textcolor{comment}{//Atualizar Operation Execution}}
+\DoxyCodeLine{182 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_ac8cc43d0d75ebe9d4b1effa9983a64de}{atualizarOperationExecution}}(\mbox{\hyperlink{struct_processo}{Processo}}** head1,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head, \mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* operationParaAtualizar,\textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{183 \textcolor{comment}{//Procurar uma operação }}
+\DoxyCodeLine{184 \mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* \mbox{\hyperlink{header_8h_a07345f66106cc8288023a6ad26874f44}{procurarOperationExecutionOp}}(\mbox{\hyperlink{struct_processo}{Processo}}** head1,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{185 \textcolor{comment}{//Ordenar por ordem crescente}}
+\DoxyCodeLine{186 \mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* \mbox{\hyperlink{header_8h_a8dcaba6aa3c0f3bc6d48bf53c47fc917}{OrdenarExecucaoPorOrdem}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head);}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 \textcolor{comment}{//Lista o numero total de processos}}
+\DoxyCodeLine{189 \textcolor{keywordtype}{int} \mbox{\hyperlink{header_8h_a54d3b5396f0290658f30e496a97f2ef1}{getListCount}}(\mbox{\hyperlink{struct_processo}{Processo}}* head);}
+\DoxyCodeLine{190 \textcolor{comment}{//Carrega os dados das listas}}
+\DoxyCodeLine{191 \textcolor{keywordtype}{void} \mbox{\hyperlink{header_8h_ac7005f74ec6d42a27cf2f3600e3cb15c}{loadData}}(\mbox{\hyperlink{struct_processo}{Processo}}** processos,\mbox{\hyperlink{struct_maquina}{Maquina}}** maquinas,\mbox{\hyperlink{struct_operation}{Operation}}** operations,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** operationsExecution,\mbox{\hyperlink{struct_processo_part}{ProcessoPart}}** processoparts);}
+\DoxyCodeLine{192 \textcolor{comment}{//Calcular a media do tempo}}
+\DoxyCodeLine{193 \textcolor{keywordtype}{int} \mbox{\hyperlink{header_8h_abc1bae9c7422873cc901e681adc213b8}{avgOperationExecution}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head,\textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{194 \textcolor{comment}{//Calcular o caminho mais curto para completar um job}}
+\DoxyCodeLine{195 \textcolor{keywordtype}{int} \mbox{\hyperlink{header_8h_a705a2b658ab69cd0b5e225c97d17efa3}{TempoMinimoDaOperacao}}(\mbox{\hyperlink{struct_processo}{Processo}}* head,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head1,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{196 \textcolor{comment}{//Calcular o caminho mais longo para completar um job}}
+\DoxyCodeLine{197 \textcolor{keywordtype}{int} \mbox{\hyperlink{header_8h_ac116c5bfd7059b6bfc98ba79723079d4}{TempoMaximoDaOperacao}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head,\textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{198 \textcolor{comment}{// Maior Operation}}
+\DoxyCodeLine{199 \textcolor{keywordtype}{int} \mbox{\hyperlink{header_8h_a13bcd0758ad1ea44e2bbe132994ba382}{maiorOperation}}(\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}* head);}
+\DoxyCodeLine{200 \textcolor{comment}{//Eliminar Processo Operation}}
+\DoxyCodeLine{201 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_aa3a124023d687b9febe73fcee9003193}{eliminarProcessoOperationExecution}}(\mbox{\hyperlink{struct_processo}{Processo}}** head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{202 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_ab61e820ebde4e4cc7433f5c16450b86d}{eliminarProcessoOperationExecutionOp}}(\mbox{\hyperlink{struct_processo}{Processo}}** head,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head1,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{int} operation);}
+\DoxyCodeLine{203 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_abeb7aafcf1c0958c269e97a740da8364}{procurarProcessoOperationExecutionOp}}(\mbox{\hyperlink{struct_processo}{Processo}}** head1,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{204 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a1a62d3d1905c081a99f4be73f0161fc3}{procurarProcessoOperationExecutionOpMaquina}}(\mbox{\hyperlink{struct_processo}{Processo}}** head1,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{int} operationID,\textcolor{keywordtype}{int} machineID);}
+\DoxyCodeLine{205 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a5b408f9abad233f0ff09858467332272}{atualizarProcessoOperationExecution}}(\mbox{\hyperlink{struct_processo}{Processo}}** head1,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{int} operationID,\textcolor{keywordtype}{int} update);}
+\DoxyCodeLine{206 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a632aff8ad4ad5ee59a2c928e5e848708}{atualizarProcessoOperationExecutionMaquina}}(\mbox{\hyperlink{struct_processo}{Processo}}** head1,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{int} operationID,\textcolor{keywordtype}{int} machineID,\textcolor{keywordtype}{int} update);}
+\DoxyCodeLine{207 \textcolor{keywordtype}{bool} \mbox{\hyperlink{header_8h_a9336711176e5a0d2f0ecef693169a42e}{atualizarProcessoOperationExecutionTempo}}(\mbox{\hyperlink{struct_processo}{Processo}}** head1,\mbox{\hyperlink{struct_operation_execution}{OperationExecution}}** head,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id},\textcolor{keywordtype}{int} operationID,\textcolor{keywordtype}{int} machineID,\textcolor{keywordtype}{int} update);}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#pragma endregion}}
+
+\end{DoxyCode}

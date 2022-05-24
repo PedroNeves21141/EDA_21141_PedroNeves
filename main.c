@@ -74,7 +74,7 @@ int main()
 
     //FASE 1
         //Carregar dados para as tabelas
-        loadData(&processos,&maquinas,&operations,&operationExecutions);
+        //loadData(&processos,&maquinas,&operations,&operationExecutions,&processoparts);
         //Guardar os dados em ficheiros
         escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
         escreverOperations("Listas/operation.txt",operations);
@@ -206,7 +206,6 @@ int main()
                     printf("Operacao atualizada com sucesso!\n");
                 }
 
-
                 system("pause");
                 escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
                 escreverJob("job.txt",operationExecutions);
@@ -220,15 +219,37 @@ int main()
         case 5:
             system("cls");
             //Minimo
-            int TempoMin;
-            TempoMin = TempoMinimoDaOperacao(operationExecutions);
+            int i = 0;
+            int count2 = 0;
+            int y = maiorOperation(operationExecutions);
+            printf("Menor curso:\n");
+            for(i=1;i<=y;i++)
+            {
+                if(procurarOperationporID(operations,i) == true)
+                {
+                    count2 = count2 + TempoMinimoDaOperacao(operationExecutions,i);
+                }    
+            }
+
+            printf("\nCount: %d\n",count2);
             system("pause");
             break;
         case 6:
             system("cls");
             //Maximo
-            int TempoMax;
-            TempoMax = TempoMaximoDaOperacao(operationExecutions);
+            int i2 = 1;
+            int count3 = 0;
+            int y2 = maiorOperation(operationExecutions);
+            printf("Maior curso:\n");
+            for(y2;y2>1;y2--)
+            {
+                if(procurarOperationporID(operations,y2) == true)
+                {
+                    count3 = count3 + TempoMaximoDaOperacao(operationExecutions,y2);
+                }    
+            }
+
+            printf("\nCount: %d\n",count3);
             system("pause");
             break;
         case 7:
@@ -245,13 +266,19 @@ int main()
             avgOperationExecution(operationExecutions,id);
             system("pause");
             break;
+        case 8:
+            system("cls");
+            //Mostrar lista de processos
+            mostrarProcessos(processos);
+            system("pause");
+            break;
         case 0:
             printf("Adeus!\n\n");
             break;                        
         default:
             break;
         }
-    }while (op < 1 && op > 10 || op != 0);
+    }while (op < 1 && op > 11 || op != 0);
 
         return true;
 }

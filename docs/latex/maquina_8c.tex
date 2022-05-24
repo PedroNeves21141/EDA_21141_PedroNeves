@@ -1,0 +1,155 @@
+\hypertarget{maquina_8c}{}\doxysection{maquina.\+c File Reference}
+\label{maquina_8c}\index{maquina.c@{maquina.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$ \mbox{\hyperlink{maquina_8c_a30a4e5a3ca6534c3c28fa541903bed81}{nova\+Maquina}} (int id, \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} is\+Active)
+\item 
+\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$ \mbox{\hyperlink{maquina_8c_a22208bfb7363bbc8d21b771dc4f251f4}{inserir\+Maquina\+No\+Inicio}} (\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$head, \mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$machine\+De\+Inicio)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{maquina_8c_a808b84cebde0bacf26cfbba664941c25}{escrever\+Maquinas}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$head)
+\item 
+\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$ \mbox{\hyperlink{maquina_8c_ace57c013cf4e606d46c3616b9bd23d27}{ler\+Maquinas}} (char file\+Name\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{maquina_8c_a80894c4215d16e8e0a581999138d8c67}{mostrar\+Maquinas}} (\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$head)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{maquina_8c_a209d3a829d5762b6aa4ff7e5746c7e8e}{procurar\+Maquina}} (\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$head, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{maquina_8c_a6018562fe1d28f9c8c0ba06c6f9cd848}{apagar\+Maquinas}} (\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$head)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Pedro Neves (\href{mailto:a21141@alunos.ipca.pt}{\texttt{ a21141@alunos.\+ipca.\+pt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/03-\/10
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{maquina_8c_a6018562fe1d28f9c8c0ba06c6f9cd848}\label{maquina_8c_a6018562fe1d28f9c8c0ba06c6f9cd848}} 
+\index{maquina.c@{maquina.c}!apagarMaquinas@{apagarMaquinas}}
+\index{apagarMaquinas@{apagarMaquinas}!maquina.c@{maquina.c}}
+\doxysubsubsection{\texorpdfstring{apagarMaquinas()}{apagarMaquinas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} apagar\+Maquinas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{maquina_8c_a808b84cebde0bacf26cfbba664941c25}\label{maquina_8c_a808b84cebde0bacf26cfbba664941c25}} 
+\index{maquina.c@{maquina.c}!escreverMaquinas@{escreverMaquinas}}
+\index{escreverMaquinas@{escreverMaquinas}!maquina.c@{maquina.c}}
+\doxysubsubsection{\texorpdfstring{escreverMaquinas()}{escreverMaquinas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} escrever\+Maquinas (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+{\em head} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{maquina_8c_a22208bfb7363bbc8d21b771dc4f251f4}\label{maquina_8c_a22208bfb7363bbc8d21b771dc4f251f4}} 
+\index{maquina.c@{maquina.c}!inserirMaquinaNoInicio@{inserirMaquinaNoInicio}}
+\index{inserirMaquinaNoInicio@{inserirMaquinaNoInicio}!maquina.c@{maquina.c}}
+\doxysubsubsection{\texorpdfstring{inserirMaquinaNoInicio()}{inserirMaquinaNoInicio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$ inserir\+Maquina\+No\+Inicio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$}]{machine\+De\+Inicio }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+{\em machine\+De\+Inicio} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Maquina$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{maquina_8c_ace57c013cf4e606d46c3616b9bd23d27}\label{maquina_8c_ace57c013cf4e606d46c3616b9bd23d27}} 
+\index{maquina.c@{maquina.c}!lerMaquinas@{lerMaquinas}}
+\index{lerMaquinas@{lerMaquinas}!maquina.c@{maquina.c}}
+\doxysubsubsection{\texorpdfstring{lerMaquinas()}{lerMaquinas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$ ler\+Maquinas (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Maquina$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{maquina_8c_a80894c4215d16e8e0a581999138d8c67}\label{maquina_8c_a80894c4215d16e8e0a581999138d8c67}} 
+\index{maquina.c@{maquina.c}!mostrarMaquinas@{mostrarMaquinas}}
+\index{mostrarMaquinas@{mostrarMaquinas}!maquina.c@{maquina.c}}
+\doxysubsubsection{\texorpdfstring{mostrarMaquinas()}{mostrarMaquinas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} mostrar\+Maquinas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{maquina_8c_a30a4e5a3ca6534c3c28fa541903bed81}\label{maquina_8c_a30a4e5a3ca6534c3c28fa541903bed81}} 
+\index{maquina.c@{maquina.c}!novaMaquina@{novaMaquina}}
+\index{novaMaquina@{novaMaquina}!maquina.c@{maquina.c}}
+\doxysubsubsection{\texorpdfstring{novaMaquina()}{novaMaquina()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$ nova\+Maquina (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}]{is\+Active }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em is\+Active} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Maquina$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{maquina_8c_a209d3a829d5762b6aa4ff7e5746c7e8e}\label{maquina_8c_a209d3a829d5762b6aa4ff7e5746c7e8e}} 
+\index{maquina.c@{maquina.c}!procurarMaquina@{procurarMaquina}}
+\index{procurarMaquina@{procurarMaquina}!maquina.c@{maquina.c}}
+\doxysubsubsection{\texorpdfstring{procurarMaquina()}{procurarMaquina()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} procurar\+Maquina (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_maquina}{Maquina}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & \\
+\hline
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}

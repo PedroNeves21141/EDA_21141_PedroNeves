@@ -275,7 +275,7 @@ bool procurarOperationporID(Operation* head, int id)
         }
         current = current->next; 
     }
-     return false;
+    return false;
 }
 
 /**
@@ -539,6 +539,7 @@ OperationExecution* procurarOperationExecution(OperationExecution** head,int ope
     return false;
 }
 
+
 /**
  * @brief 
  * 
@@ -547,21 +548,24 @@ OperationExecution* procurarOperationExecution(OperationExecution** head,int ope
  * @return OperationExecution* 
  */
 
-OperationExecution* procurarOperationExecutionOp(OperationExecution** head,int operationID)
+OperationExecution* procurarOperationExecutionOp(Processo** head1,OperationExecution** head,int id,int operationID)
 {
     if(head == NULL)
     {
         return false;
     }
 
+    Processo* current1 = head1;
     OperationExecution* current = head;
+
     while (current != NULL) //enquanto a lista for diferente de NULL
     {
-        if(current->operationID == operationID)//verifica se existe o operationID na lista
+        if((current1->id == id)&&(current->operationID == operationID))//verifica se existe o operationID na lista
         {
             return true;
         }
-        current = current->next; 
+        current = current->next;
+        current1 = current1->next;  
     }
     return false;
 }
@@ -685,7 +689,7 @@ int avgOperationExecution(OperationExecution* head,int operationID)
  * @return false 
  */
 
-bool atualizarOperationExecution(OperationExecution** head, OperationExecution* operationParaAtualizar,int usageTime)
+bool atualizarOperationExecution(Processo** head1,OperationExecution** head, OperationExecution* operationParaAtualizar,int operationID)
 {
     if(head == NULL) //se a lista estiver vazia
     {
@@ -693,13 +697,12 @@ bool atualizarOperationExecution(OperationExecution** head, OperationExecution* 
     }
     
     OperationExecution* current = &head;
-
+    Processo* current1 = &head1;
 
     while (current != NULL) //enquanto a lista for diferente de NULL,este corre todos os elementos da Operation
     {
-        if(usageTime != 0)
+        if(operationID != 0)
         {
-           
              current = operationParaAtualizar;
              return true;
         }
@@ -741,35 +744,43 @@ OperationExecution* OrdenarExecucaoPorOrdem(OperationExecution* head){
  * @return int 
  */
 
-int TempoMinimoDaOperacao(OperationExecution* head)
+int TempoMinimoDaOperacao(Processo* head,OperationExecution* head1,int id,int operationID)
 {
-    if (head == NULL)
+    int min=9999,auxOperation=0,auxMaquina=0;
+
+    if(head1 == NULL || head == NULL || operationID == NULL)
     {
-        return 0;
+        printf("entrou");
+        return false;
     }
 
-    int TempoMinimoDaOperacao = 100, IdMaquina, aux = 0,count = 0;
-
-    OperationExecution* current = head;
-
-    printf("Menor tempo possivel:\n");
-    while (current != NULL)
+    Processo* current = head;
+    OperationExecution* current1 = head;
+    
+    while(current1 != NULL) //se a lista for diferente de NULL
     {
-        aux = current->operationID;
-        TempoMinimoDaOperacao = current->usageTime;
-
-        while (current->operationID == aux)
+        if((current->id == id) && (current1->operationID == operationID))
         {
-            if(current->usageTime <= TempoMinimoDaOperacao)
+            printf("entrou2");
+            if (current1->usageTime <= min)
             {
-                printf("\tOperacaoID: %d\tMaquinaID: %d\tTempo: %d\n",current->operationID,current->machineID,current->usageTime);
-                count = current->usageTime + count;
+                printf("entrou3");
+                min = current1->usageTime;
+                auxOperation = current1->operationID;
+                auxMaquina = current1->machineID;
             }
-            current = current->next;
         }
+            current1 = current1->next;
+            current = current->next;
     }
 
-    return TempoMinimoDaOperacao;
+    if(auxOperation != 0)
+    {
+        printf("\tProcessoID: %d\tOperacaoID: %d\tMaquinaID: %d\tTempo: %d\n",current->id,auxOperation,auxMaquina,min);
+        return min;
+    }
+    return false;
+    
 }
 
 /**
@@ -779,34 +790,69 @@ int TempoMinimoDaOperacao(OperationExecution* head)
  * @return int 
  */
 
-int TempoMaximoDaOperacao(OperationExecution* head)
+int TempoMaximoDaOperacao(OperationExecution* head,int operationID)
 {
-    if (head == NULL)
-    {
-        return 0;
-    }
+    int max=0,auxOperation=0,auxMaquina=0;
 
-    int TempoMaximoDaOperacao = 0, IdMaquina, aux = 0,count = 0;
+    if(head == NULL || operationID == NULL)
+    {
+        return false;
+    }
 
     OperationExecution* current = head;
 
-    printf("Maior tempo possivel:\n");
-    while (current != NULL)
+    max = current->usageTime;
+    while(current != NULL) //se a lista for diferente de NULL
     {
-        aux = current->operationID;
-        TempoMaximoDaOperacao = current->usageTime;
-
-        while (current->operationID == aux)
+        if(current->operationID == operationID)
         {
-            if(current->usageTime > TempoMaximoDaOperacao)
+            if (current->usageTime > max)
             {
-                printf("\tOperacaoID: %d\tMaquinaID: %d\tTempo: %d\n",current->operationID,current->machineID,current->usageTime);
-                count = current->usageTime + count;
+                max = current->usageTime;
+                auxOperation = current->operationID;
+                auxMaquina = current->machineID;
             }
-            current = current->next;
         }
+        current = current->next;
     }
 
-    return TempoMaximoDaOperacao;
+    if(auxOperation != 0)
+    {
+        printf("\tOperacaoID: %d\tMaquinaID: %d\tTempo: %d\n",auxOperation,auxMaquina,max);
+        return max;
+    }
+    return false;
+    
 }
 
+/**
+ * @brief 
+ * 
+ * @param head 
+ * @return int 
+ */
+
+int maiorOperation(OperationExecution* head)
+{
+    int maiorO;
+
+    if(head == NULL)
+    {
+        return false;
+    }
+
+    OperationExecution* current = head;
+
+    maiorO = current->operationID;
+    while(current != NULL) //se a lista for diferente de NULL
+    {
+    if (current->operationID > maiorO)
+      {
+         maiorO = current->operationID;
+      }
+        current = current->next;
+    }
+
+    return maiorO;
+
+}
