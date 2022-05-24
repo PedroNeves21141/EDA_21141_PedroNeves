@@ -38,7 +38,7 @@ Operation* novoOperation(int id)
 }
 
 /**
- * @brief 
+ * @brief Inserir uma nova operação no inicio da lista
  * 
  * @param head 
  * @param operationNoInicio 
@@ -61,7 +61,7 @@ Operation* inserirOperationNoInicio(Operation* head,Operation* operationNoInicio
 }
 
 /**
- * @brief 
+ * @brief Atualizar Operação
  * 
  * @param head 
  * @param operationParaAtualizar 
@@ -571,7 +571,7 @@ OperationExecution* procurarOperationExecutionOp(Processo** head1,OperationExecu
 }
 
 /**
- * @brief 
+ * @brief Apagar lista
  * 
  * @param head 
  * @return true 
@@ -646,7 +646,7 @@ int maxOperationExecution(Operation* operations, OperationExecution* executions,
 }
 
 /**
- * @brief 
+ * @brief Média
  * 
  * @param head 
  * @return int 
@@ -680,7 +680,7 @@ int avgOperationExecution(OperationExecution* head,int operationID)
 }
 
 /**
- * @brief 
+ * @brief Atualizar uma Operação
  * 
  * @param head 
  * @param operationParaAtualizar 
@@ -714,7 +714,7 @@ bool atualizarOperationExecution(Processo** head1,OperationExecution** head, Ope
 }
 
 /**
- * @brief 
+ * @brief Ordenar as listas
  * 
  * @param head 
  * @return OperationExecution* 
@@ -738,53 +738,61 @@ OperationExecution* OrdenarExecucaoPorOrdem(OperationExecution* head){
 }
 
 /**
- * @brief 
+ * @brief Tempo Minimo da operação/jobs
  * 
  * @param head 
  * @return int 
  */
 
-int TempoMinimoDaOperacao(Processo* head,OperationExecution* head1,int id,int operationID)
+bool TempoMinimoDaOperacao(char fileName[],Processo** head1,OperationExecution** head,int id,int operationID)
 {
-    int min=9999,auxOperation=0,auxMaquina=0;
+    int min=999,auxOperation=0,auxProcesso=0,auxMaquina=0;
 
-    if(head1 == NULL || head == NULL || operationID == NULL)
+    if(head == NULL || head1 == NULL)
     {
-        printf("entrou");
         return false;
     }
 
-    Processo* current = head;
-    OperationExecution* current1 = head;
-    
-    while(current1 != NULL) //se a lista for diferente de NULL
+    FILE* file;
+    file = fopen(fileName,"a");
+
+    OperationExecution* current = head;
+    Processo* current1 = head1;
+
+    while (current != NULL) //enquanto a lista for diferente de NULL
     {
-        if((current->id == id) && (current1->operationID == operationID))
+        if((current1->id == id)&&(current->operationID == operationID))//verifica se existe o operationID na lista
         {
-            printf("entrou2");
-            if (current1->usageTime <= min)
+            if (current->usageTime <= min)
             {
-                printf("entrou3");
-                min = current1->usageTime;
-                auxOperation = current1->operationID;
-                auxMaquina = current1->machineID;
+                min = current->usageTime;
+                auxProcesso = current1->id;
+                auxOperation = current->operationID;
+                auxMaquina = current->machineID;
             }
         }
-            current1 = current1->next;
-            current = current->next;
+        current = current->next;
+        current1 = current1->next; 
     }
 
-    if(auxOperation != 0)
+    if(min != 0)
     {
-        printf("\tProcessoID: %d\tOperacaoID: %d\tMaquinaID: %d\tTempo: %d\n",current->id,auxOperation,auxMaquina,min);
+        fprintf(file,"ProcessoID: %d\tOperacaoID: %d\tMaquinaID: %d\tTempo: %d\n",auxProcesso,auxOperation,auxMaquina,min);
+        fclose(file);
+    }
+
+    if(min != 0)
+    {
+        printf("\tProcessoID: %d\tOperacaoID: %d\tMaquinaID: %d\tTempo: %d\n",auxProcesso,auxOperation,auxMaquina,min);
         return min;
     }
+
+
     return false;
-    
 }
 
 /**
- * @brief 
+ * @brief Tempo Maximo da operação/jobs
  * 
  * @param head 
  * @return int 
@@ -826,7 +834,7 @@ int TempoMaximoDaOperacao(OperationExecution* head,int operationID)
 }
 
 /**
- * @brief 
+ * @brief Calcular maior operação
  * 
  * @param head 
  * @return int 

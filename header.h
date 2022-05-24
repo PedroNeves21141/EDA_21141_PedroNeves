@@ -50,8 +50,8 @@ typedef struct Processo
 
 typedef struct OperationExecution
 {
-    int operationID;
-    int machineID;
+    int operationID; //operationID
+    int machineID; //maquinaID
     int usageTime; //unidades de tempo necessaria para a realização da operação
     struct OperationExecution* next;
 }OperationExecution;
@@ -192,18 +192,24 @@ void loadData(Processo** processos,Maquina** maquinas,Operation** operations,Ope
 //Calcular a media do tempo
 int avgOperationExecution(OperationExecution* head,int operationID);
 //Calcular o caminho mais curto para completar um job
-int TempoMinimoDaOperacao(Processo* head,OperationExecution* head1,int id,int operationID);
+bool TempoMinimoDaOperacao(char fileName[],Processo** head1,OperationExecution** head,int id,int operationID);
 //Calcular o caminho mais longo para completar um job
 int TempoMaximoDaOperacao(OperationExecution* head,int operationID);
 // Maior Operation
 int maiorOperation(OperationExecution* head);
-//Eliminar Processo Operation
+//Eliminar Processo
 bool eliminarProcessoOperationExecution(Processo** head,int id);
+//Eliminar Processo e Operation
 bool eliminarProcessoOperationExecutionOp(Processo** head,OperationExecution** head1,int id,int operation);
+//Eliminar Processo e Operation
 bool procurarProcessoOperationExecutionOp(Processo** head1,OperationExecution** head,int id,int operationID);
+//Procurar Maquina
 bool procurarProcessoOperationExecutionOpMaquina(Processo** head1,OperationExecution** head,int id,int operationID,int machineID);
+//Atualizar uma operação
 bool atualizarProcessoOperationExecution(Processo** head1,OperationExecution** head,int id,int operationID,int update);
+//Atualizar uma maquina
 bool atualizarProcessoOperationExecutionMaquina(Processo** head1,OperationExecution** head,int id,int operationID,int machineID,int update);
+//Atualizar tempo de uma maquina
 bool atualizarProcessoOperationExecutionTempo(Processo** head1,OperationExecution** head,int id,int operationID,int machineID,int update);
 
 

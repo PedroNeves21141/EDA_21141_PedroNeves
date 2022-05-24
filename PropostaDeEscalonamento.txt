@@ -1,0 +1,8 @@
+ProcessoID: 1	OperacaoID: 1	MaquinaID: 3	Tempo: 1
+ProcessoID: 2	OperacaoID: 1	MaquinaID: 1	Tempo: 1
+ProcessoID: 3	OperacaoID: 2	MaquinaID: 1	Tempo: 1
+ProcessoID: 4	OperacaoID: 3	MaquinaID: 3	Tempo: 2
+ProcessoID: 4	OperacaoID: 5	MaquinaID: 6	Tempo: 2
+ProcessoID: 5	OperacaoID: 1	MaquinaID: 1	Tempo: 1
+ProcessoID: 5	OperacaoID: 2	MaquinaID: 2	Tempo: 2
+ProcessoID: 5	OperacaoID: 3	MaquinaID: 3	Tempo: 3

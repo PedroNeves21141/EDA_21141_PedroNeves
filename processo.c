@@ -291,6 +291,12 @@ bool apagarProcessos(Processo* head)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief 
+ * 
+ * @param id 
+ * @return ProcessoPart* 
+ */
 
 ProcessoPart* novoProcessoPart(int id)
 {
@@ -306,6 +312,14 @@ ProcessoPart* novoProcessoPart(int id)
     return newProcessoPart;
 }
 
+/**
+ * @brief 
+ * 
+ * @param head 
+ * @param ProcessoDeInicio 
+ * @return ProcessoPart* 
+ */
+
 ProcessoPart* inserirProcessoPartNoInicio(ProcessoPart* head, ProcessoPart* ProcessoDeInicio)
 {
     if (head == NULL) //se a lista estiver vazia
@@ -320,6 +334,15 @@ ProcessoPart* inserirProcessoPartNoInicio(ProcessoPart* head, ProcessoPart* Proc
 
     return head;
 }
+
+/**
+ * @brief 
+ * 
+ * @param head 
+ * @param id 
+ * @return true 
+ * @return false 
+ */
 
 bool eliminarProcessoPart(ProcessoPart** head, int id)
 {
@@ -350,6 +373,14 @@ bool eliminarProcessoPart(ProcessoPart** head, int id)
     return true;;
 }
 
+/**
+ * @brief 
+ * 
+ * @param head 
+ * @return true 
+ * @return false 
+ */
+
 bool mostrarProcessosPart(ProcessoPart* head)
 {
     if(head == NULL)
@@ -367,6 +398,15 @@ bool mostrarProcessosPart(ProcessoPart* head)
 
     return true;
 }
+
+/**
+ * @brief 
+ * 
+ * @param fileName 
+ * @param head 
+ * @return true 
+ * @return false 
+ */
 
 bool escreverProcessosPart(char fileName[],ProcessoPart* head)
 {
@@ -402,6 +442,14 @@ bool escreverProcessosPart(char fileName[],ProcessoPart* head)
 
 }
 
+/**
+ * @brief 
+ * 
+ * @param head 
+ * @param id 
+ * @return ProcessoPart* 
+ */
+
 ProcessoPart* procurarProcessoPart(ProcessoPart* head,int id)
 {
     if(head == NULL)
@@ -422,6 +470,15 @@ ProcessoPart* procurarProcessoPart(ProcessoPart* head,int id)
      return false;
 }
 
+/**
+ * @brief 
+ * 
+ * @param head 
+ * @param id 
+ * @return true 
+ * @return false 
+ */
+
 bool eliminarProcessoOperationExecution(Processo** head,int id)
 {
     if(head == NULL)
@@ -429,19 +486,33 @@ bool eliminarProcessoOperationExecution(Processo** head,int id)
         return false;
     }
 
+    int update = 9999; 
+
     Processo* current = head;
 
     while (current != NULL) //enquanto a lista for diferente de NULL
     {
         if(current->id == id)//verifica se existe o operationID na lista
         {
-            current->id = 0;
+            current->id = update;
             return true;
         }
         current = current->next;
     }
     return false;
+
 }
+
+/**
+ * @brief 
+ * 
+ * @param head 
+ * @param head1 
+ * @param id 
+ * @param operation 
+ * @return true 
+ * @return false 
+ */
 
 bool eliminarProcessoOperationExecutionOp(Processo** head,OperationExecution** head1,int id,int operation)
 {
@@ -450,15 +521,16 @@ bool eliminarProcessoOperationExecutionOp(Processo** head,OperationExecution** h
         return false;
     }
 
-    int zero = 0;
+    int update = 9999; 
+
     Processo* current = head;
     OperationExecution* current1 = head1;
 
-    while(current != NULL) //enquanto a lista for diferente de NULL
+    while (current != NULL) //enquanto a lista for diferente de NULL
     {
-        if((current->id == id) && (current1->operationID == operation))//verifica se existe o operationID na lista
+        if((current->id == id)&&(current1->operationID == operation))//verifica se existe o operationID na lista
         {
-            current1->operationID = zero;
+            current1->operationID = update;
             return true;
         }
         current = current->next;
@@ -466,6 +538,17 @@ bool eliminarProcessoOperationExecutionOp(Processo** head,OperationExecution** h
     }
     return false;
 }
+
+/**
+ * @brief 
+ * 
+ * @param head1 
+ * @param head 
+ * @param id 
+ * @param operationID 
+ * @return true 
+ * @return false 
+ */
 
 bool procurarProcessoOperationExecutionOp(Processo** head1,OperationExecution** head,int id,int operationID)
 {
@@ -489,6 +572,18 @@ bool procurarProcessoOperationExecutionOp(Processo** head1,OperationExecution** 
     return false;
 }
 
+/**
+ * @brief 
+ * 
+ * @param head1 
+ * @param head 
+ * @param id 
+ * @param operationID 
+ * @param machineID 
+ * @return true 
+ * @return false 
+ */
+
 bool procurarProcessoOperationExecutionOpMaquina(Processo** head1,OperationExecution** head,int id,int operationID,int machineID)
 {
     if(head == NULL || head1 == NULL)
@@ -510,6 +605,18 @@ bool procurarProcessoOperationExecutionOpMaquina(Processo** head1,OperationExecu
     }
     return false;
 }
+
+/**
+ * @brief 
+ * 
+ * @param head1 
+ * @param head 
+ * @param id 
+ * @param operationID 
+ * @param update 
+ * @return true 
+ * @return false 
+ */
 
 bool atualizarProcessoOperationExecution(Processo** head1,OperationExecution** head,int id,int operationID,int update)
 {
@@ -534,6 +641,19 @@ bool atualizarProcessoOperationExecution(Processo** head1,OperationExecution** h
     return false;
 }
 
+/**
+ * @brief 
+ * 
+ * @param head1 
+ * @param head 
+ * @param id 
+ * @param operationID 
+ * @param machineID 
+ * @param update 
+ * @return true 
+ * @return false 
+ */
+
 bool atualizarProcessoOperationExecutionMaquina(Processo** head1,OperationExecution** head,int id,int operationID,int machineID,int update)
 {
     if(head == NULL || head1 == NULL)
@@ -556,6 +676,19 @@ bool atualizarProcessoOperationExecutionMaquina(Processo** head1,OperationExecut
     }
     return false;
 }
+
+/**
+ * @brief 
+ * 
+ * @param head1 
+ * @param head 
+ * @param id 
+ * @param operationID 
+ * @param machineID 
+ * @param update 
+ * @return true 
+ * @return false 
+ */
 
 bool atualizarProcessoOperationExecutionTempo(Processo** head1,OperationExecution** head,int id,int operationID,int machineID,int update)
 {

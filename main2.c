@@ -54,7 +54,10 @@ bool mostrarProcessoOperation(Processo* head1, OperationExecution* head)
     printf("Lista:\n");
     while(current != NULL || current1 != NULL)
     {
-        printf("ProcessoID: %d, OperationID: %d, MachineID: %d, Tempo: %d\n",current1->id,current->operationID,current->machineID,current->usageTime);
+        if((current1->id < 500) && (current->operationID < 500))
+        {
+            printf("ProcessoID: %d, OperationID: %d, MachineID: %d, Tempo: %d\n",current1->id,current->operationID,current->machineID,current->usageTime);
+        }
         current = current->next;
         current1 = current1->next;
     }
@@ -99,11 +102,6 @@ int main()
     //FASE 1
         //Carregar dados para as tabelas
         loadData(&processos,&maquinas,&operations,&operationExecutions,&processoparts);
-        //Guardar os dados em ficheiros
-        escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
-        escreverOperations("Listas/operation.txt",operations);
-        escreverProcessos("Listas/processo.txt",processos);
-        escreverProcessosPart("Listas/processopart.txt",processoparts);
 
     do
     {
@@ -164,18 +162,13 @@ int main()
             processopart = novoProcessoPart(op1);
             processoparts = inserirProcessoPartNoInicio(processoparts,processopart);
             system("cls");
-            escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
             escreverJob("job.txt",processos,operationExecutions);
-            escreverOperations("Listas/operation.txt",operations);
             system("pause");
             break;
         case 3:
             system("cls");
-            int zero;
-            //Remover Processo - Em falta
+            //Remover Processo - Funciona
             printf("Selecione o id do processo que deseja eliminar: ");scanf("%d",&op2);
-            printf("zero: "); scanf("%d",&zero);
-            int count = 0;
 
             while((procurarProcesso(processos,op2) == false)&&(procurarProcessoPart(processoparts,op2) == false))
             {
@@ -191,7 +184,6 @@ int main()
             while(procurarProcesso(processos,op2) != false)
             {
                 eliminarProcessoOperationExecution(processos,op2);
-                count=count+1;
             }
 
             while(procurarProcessoPart(processoparts,op2) == true)
@@ -199,16 +191,19 @@ int main()
                 eliminarProcessoPart(&processoparts,op2);
             }
 
-            escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
-            escreverJob("job.txt",operationExecutions);
-            escreverOperations("Listas/operation.txt",operations);
-            escreverProcessosPart("Listas/processopart.txt",processoparts);
+            if(procurarProcesso(processos,op2) == false)
+            {
+                system("cls");
+                printf("Apagado com sucesso...\n");
+            }
+
+            escreverJob("job.txt",processos,operationExecutions);
             system("pause");
             break;
 
         case 4:
             system("cls");
-            //Inserir operação a um job - 
+            //Inserir operação a um job - Funciona
             printf("Processo: "); scanf("%d",&op3);
 
             while((procurarProcessoPart(processoparts,op3) == false)||(op3 < 1))
@@ -243,14 +238,13 @@ int main()
             processopart = novoProcessoPart(op3);
             processoparts = inserirProcessoPartNoInicio(processoparts,processopart);
             system("cls");
-            escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
             escreverJob("job.txt",processos,operationExecutions);
-            escreverOperations("Listas/operation.txt",operations);
             system("pause");
             break;
         case 5:
             system("cls");
             int proc,oper;
+            int count = 0;
             //Remover uma determinada operacao de um job
             printf("Selecione o id do processo: "); scanf("%d",&proc);
             printf("Selecione o id da operacao: "); scanf("%d",&oper);
@@ -268,12 +262,9 @@ int main()
                 }
             }
 
-            if(procurarProcessoOperationExecutionOp(processos,operationExecutions,proc,oper) != false)
+            while(procurarProcessoOperationExecutionOp(processos,operationExecutions,proc,oper) != false)
             {
-                while(eliminarProcessoOperationExecution(processos,op2) != false)
-                {
-                    count=count+1;
-                }
+                eliminarProcessoOperationExecutionOp(processos,operationExecutions,proc,oper);
             }
 
             if(procurarProcessoPart(processoparts,proc) == true)
@@ -282,15 +273,11 @@ int main()
             }
 
             system("pause");
-            escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
-            escreverJob("job.txt",operationExecutions);
-            escreverOperations("Listas/operation.txt",operations);
-            escreverProcessosPart("Listas/processopart.txt",processoparts);
-            system("pause");
+            escreverJob("job.txt",processos,operationExecutions);
             break;
         case 6:
             system("cls");
-            //Editar uma determinada operação de um determinado processo
+            //Editar uma determinada operação de um determinado processo - Funciona
                 int ope1,ope2,ope2U,ope3,ope3U,ope4,ope4U,opeO;
                 system("cls");
 
@@ -310,30 +297,30 @@ int main()
 
                 switch (opeO)
                 {
-                case 1: //Alterar Operação
+                case 1: //Alterar Operação - Funciona
                     system("cls");
                     printf("Selecione a id da operation: "); scanf("%d",&ope2);
-                    printf("Selecione o id que deseja: "); scanf("%d",&ope2U);
+                    printf("Selecione a id da maquina: "); scanf("%d",&ope3);
+                    printf("Selecione o id que deseja: "); scanf("%d",&ope3U);
 
-                    while(procurarProcessoOperationExecutionOp(processos,operationExecutions,ope1,ope2) != true)
+                    while(procurarProcessoOperationExecutionOpMaquina(processos,operationExecutions,ope1,ope2,ope3) != true)
                     {
                         system("cls");
                         printf("Nao Existe!\n\n");
                         printf("Selecione a id da operation: "); scanf("%d",&ope2);
-                        printf("Selecione o id que deseja: "); scanf("%d",&ope2U);
+                        printf("Selecione a id da maquina: "); scanf("%d",&ope3);
+                        printf("Selecione o id que deseja: "); scanf("%d",&ope3U);
                     }
 
-                    if(procurarProcessoOperationExecutionOp(processos,operationExecutions,ope1,ope2) != false)
+                    if(procurarProcessoOperationExecutionOpMaquina(processos,operationExecutions,ope1,ope2,ope3) != false)
                     {
                         atualizarProcessoOperationExecution(processos,operationExecutions,ope1,ope2,ope2U);
                         printf("Operacao atualizada com sucesso!\n");
                     }
-                    escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
                     escreverJob("job.txt",processos,operationExecutions);
-                    escreverOperations("Listas/operation.txt",operations);
                     system("pause");
                     break;
-                case 2: // Alterar Maquina
+                case 2: // Alterar Maquina - Funciona
                     system("cls");
                     printf("Selecione a id da operation: "); scanf("%d",&ope2);
                     printf("Selecione a id da maquina: "); scanf("%d",&ope3);
@@ -353,12 +340,10 @@ int main()
                         atualizarProcessoOperationExecutionMaquina(processos,operationExecutions,ope1,ope2,ope3,ope3U);
                         printf("Maquina atualizada com sucesso!\n");
                     }
-                    escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
                     escreverJob("job.txt",processos,operationExecutions);
-                    escreverOperations("Listas/operation.txt",operations);
                     system("pause");
                     break;
-                case 3: //Alterar Tempo
+                case 3: //Alterar Tempo - Funciona
                     system("cls");
                     printf("Selecione a id da operation: "); scanf("%d",&ope2);
                     printf("Selecione a id da maquina: "); scanf("%d",&ope3);
@@ -379,9 +364,7 @@ int main()
                         atualizarProcessoOperationExecutionTempo(processos,operationExecutions,ope1,ope2,ope3,ope4U);
                         printf("Tempo atualizada com sucesso!\n");
                     }
-                    escreverOperationExecution("Listas/operations-execution.txt",operationExecutions);
                     escreverJob("job.txt",processos,operationExecutions);
-                    escreverOperations("Listas/operation.txt",operations);
                     system("pause");
                     break;
                 case 0:
@@ -392,29 +375,34 @@ int main()
         case 7:
             system("cls");
             printf("Proposta de escalonamento:\n\n");
-            //Minimo
-
+            //Proposta de Escalonamento - Funciona
             int i = 0;
             int j = 0;
-            int maiorOperacao = 1;
             int count2 = 0;
             int maiorProcesso = 90;
             int operationIDOK = 1;
-            printf("Menor tempo possivel para realizar todos os processos(jobs):\n");
+            char fileName[] = "PropostaDeEscalonamento.txt";
+
+            FILE* file;
+            file = fopen(fileName,"w");
+
+            printf("Menor tempo possivel para realizar todos os processos(jobs):\n\n");
 
             for(i=1;i<=maiorProcesso;i++)
             {
+                int maiorOperacao = 1;
                 while(maiorOperacao != 100)
                 {
                     if(procurarOperationExecutionOp(processos,operationExecutions,i,maiorOperacao) != false)
                     {
-                        count2 = count2 + TempoMinimoDaOperacao(processos,operationExecutions,i,maiorOperacao);
+                        count2 = count2 + TempoMinimoDaOperacao("PropostaDeEscalonamento.txt",processos,operationExecutions,i,maiorOperacao);
                     }
                     maiorOperacao = maiorOperacao + 1;       
                 }
             }
 
-            printf("\nCount: %d\n",count2);
+            printf("\nTempo que demora a realizar todos os jobs: %d\n",count2);
+            fclose(file);
             system("pause");
             break;
         case 0:

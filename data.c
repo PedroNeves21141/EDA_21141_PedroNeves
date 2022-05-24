@@ -136,14 +136,15 @@ bool escreverJob(char fileName[],Processo* head,OperationExecution* head1)
 
     Processo* current = head;
     OperationExecution* current1 = head1;
+
     while(current != NULL || current1 != NULL) //escrever todos os elementos da lista no ficheiro
     {
-        if((current->id != 0) && (current1->operationID != 0))
+        if((current->id < 500) && (current1->operationID < 500))
         {
             fprintf(file,"%d,%d,%d,%d\n",current->id,current1->operationID,current1->machineID,current1->usageTime);
+        }
             current = current->next;
             current1 = current1->next;
-        }
     }
 
     if (fwrite == 0) //se nenhum elemento foi escrito no ficheiro
